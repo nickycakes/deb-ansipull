@@ -1,0 +1,13 @@
+- name: install sudo
+  apt:
+    name: sudo
+    update_cache: true
+  become: true
+
+- name: copy sudoers_user
+  copy:
+    src: files/sudoers_user
+    dest: /etc/sudoers.d/user
+    owner: root
+    group: root
+    mode: 0440

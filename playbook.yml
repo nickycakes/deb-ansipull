@@ -1,0 +1,13 @@
+- hosts: localhost
+  connection: local
+  become: true
+
+  roles:
+    - role: apt
+    - role: ufw
+    - role: fail2ban
+    - role: unattended-upgrades
+    - role: sudo
+    - role: sshd
+    - role: zsh
+    

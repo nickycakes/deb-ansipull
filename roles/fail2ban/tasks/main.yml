@@ -1,0 +1,18 @@
+- name: install fail2ban
+  apt: 
+    name: 
+      - fail2ban
+      - python3-systemd
+    update_cache: true
+  become: true
+
+- name: fix fail2ban maintainers bullshit
+  copy:
+    src: files/jail.local
+    dest: /etc/fail2ban/jail.local
+
+- name: make sure fail2ban is started
+  systemd_service:
+    state: started
+    name: fail2ban.service
+  

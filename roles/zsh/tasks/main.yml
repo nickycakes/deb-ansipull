@@ -1,0 +1,21 @@
+- name: zsh install
+  apt: 
+    name: zsh
+    update_cache: true
+  become: true
+
+- name: zsh default shell
+  user:
+    name: "user"
+    shell: "/usr/bin/zsh"
+
+- name: dl omz install script
+  get_url:
+    url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+    dest: /tmp/install_omz.sh
+
+- name: run omz install
+  command: sh /tmp/install_omz.sh
+  become: yes
+  become_user: "user"
+  

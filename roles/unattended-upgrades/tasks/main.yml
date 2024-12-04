@@ -1,0 +1,7 @@
+- name: install unattended upgrades package
+  apt:
+    name: unattended-upgrades
+    update_cache: true
+  become: true
+
+  

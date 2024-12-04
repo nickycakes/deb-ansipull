@@ -1,0 +1,5 @@
+- name: apt upgrade
+  become: true
+  apt:
+    update_cache: true
+    upgrade: 'yes'

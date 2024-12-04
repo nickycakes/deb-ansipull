@@ -1,0 +1,17 @@
+- name: copy authorized keys
+  copy:
+    src: files/authorized_keys
+    dest: /home/user/.ssh/authorized_keys
+    owner: user
+    group: user
+    mode: 0600
+
+- name: copy config
+  copy:
+    src: files/sshd.conf
+    dest: /etc/ssh/sshd_config.d/sshd-custom.conf
+    owner: root
+    group: root
+    mode: 0600
+  notify:
+    - "reload sshd"    

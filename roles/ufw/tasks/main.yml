@@ -1,0 +1,13 @@
+- name: install UFW
+  apt: 
+    name: ufw
+    update_cache: true
+  become: true
+
+- name: allow SSH in UFW
+  community.general.ufw:
+    rule: allow
+    name: OpenSSH
+  become: true
+  notify:
+    - "Enable UFW"
