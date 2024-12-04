@@ -1,3 +1,8 @@
+- name: make .ssh dir
+  file:
+    path: /home/user/.ssh
+    state: directory
+
 - name: copy authorized keys
   copy:
     src: files/authorized_keys
