@@ -1,0 +1,7 @@
+---
+- name: bash config force_color_prompt
+  lineinfile:
+    path: /home/user/.bashrc
+    regexp: '#?force_color_prompt=yes'
+    line: 'force_color_prompt=yes'
+    state: present

@@ -9,5 +9,5 @@
     - role: unattended-upgrades
     - role: sudo
     - role: sshd
-    - role: zsh
-    
+    - role: bash
+
